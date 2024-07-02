@@ -1,13 +1,13 @@
 export async function generateImages(prompt) {
   try {
-    const response = await fetch("http://127.0.0.1:8000/generate-images", {
+    const response = await fetch("http://localhost:8000/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         prompt: prompt,
-        styles: ["Impressionist"],
+        styles: ["Suitable for LinkedIn","Suitable for Instagram"],
       }),
     });
 
@@ -16,8 +16,7 @@ export async function generateImages(prompt) {
     }
     const data = await response.json();
     console.log(data);
-    const urls = await transformFilePathsToUrls(data.images);
-    return urls;
+    return data;
   } catch (error) {
     console.error("Error:", error);
     throw error;
