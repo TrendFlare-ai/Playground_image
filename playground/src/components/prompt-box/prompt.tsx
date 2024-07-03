@@ -66,7 +66,7 @@ export function CardWithForm({ onUpdateImages }) {
         )}
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button variant="outline">Clear</Button>
+        <Button variant="outline">Post</Button>
         <Button type="submit" onClick={handleSubmit}>
           Generate
         </Button>

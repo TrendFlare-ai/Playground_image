@@ -1,15 +1,18 @@
 export async function generateImages(prompt) {
   try {
-    const response = await fetch("http://localhost:8000/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt: prompt,
-        styles: ["Suitable for LinkedIn","Suitable for Instagram"],
-      }),
-    });
+    const response = await fetch(
+      "https://image-generation-model.onrender.com/generate",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: prompt,
+          styles: ["Suitable for LinkedIn", "Suitable for Instagram"],
+        }),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error status: ${response.status}`);
